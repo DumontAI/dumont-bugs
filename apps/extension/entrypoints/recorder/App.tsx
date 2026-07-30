@@ -369,11 +369,11 @@ function App() {
 
   useEffect(() => {
     if (state === "recording") {
-      document.title = `Recording ${formatDuration(duration)} - Crikket`
+      document.title = `Recording ${formatDuration(duration)} - Dumont Bugs`
       return
     }
 
-    document.title = "Crikket Bug Report"
+    document.title = "Dumont Bugs Report"
   }, [duration, state])
 
   return (
@@ -381,7 +381,7 @@ function App() {
       <Card className="w-full max-w-3xl border-border/80 shadow-lg shadow-slate-950/5">
         <CardHeader className="gap-2 border-b bg-muted/20 text-left">
           <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-            Crikket Bug Report
+            Dumont Bugs Report
           </CardTitle>
           <CardDescription className="text-sm">
             {state === "idle" && "Waiting for capture"}

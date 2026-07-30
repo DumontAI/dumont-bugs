@@ -56,9 +56,9 @@ function App() {
   return (
     <div className="w-[380px] space-y-4 p-4">
       <div className="space-y-1">
-        <h1 className="font-medium font-mono text-xl leading-tight">crikket</h1>
+        <h1 className="font-medium font-mono text-xl leading-tight">Dumont Bugs</h1>
         <p className="text-muted-foreground text-sm">
-          Capture and report bugs with screenshots or recordings
+          Capture and report bugs with screenshots or recordings — Dumont
         </p>
       </div>
       <div className="space-y-4">

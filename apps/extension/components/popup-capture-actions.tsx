@@ -106,7 +106,7 @@ export function PopupCaptureActions({
       {pendingCaptureType ? (
         <div className="space-y-2 rounded-md border border-primary/20 bg-primary/5 p-3">
           <p className="text-sm">
-            Allow Crikket to capture your current tab for{" "}
+            Allow Dumont Bugs to capture your current tab for{" "}
             {pendingCaptureType === "video" ? "recording" : "screenshot"}?
           </p>
           <div className="flex gap-2">

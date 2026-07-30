@@ -4,10 +4,10 @@ import { defineConfig } from "wxt"
 export default defineConfig({
   modules: ["@wxt-dev/module-react"],
   manifest: {
-    name: "Crikket",
-    short_name: "Crikket",
+    name: "Dumont Bugs",
+    short_name: "Dumont Bugs",
     action: {
-      default_title: "Crikket",
+      default_title: "Dumont Bugs",
       default_popup: "popup.html",
     },
     commands: {

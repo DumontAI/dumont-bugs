@@ -17,7 +17,7 @@ export function AuthShell({ title, description, children }: AuthShellProps) {
   return (
     <div className="flex w-full flex-col items-center p-4">
       <div className="mb-6 flex items-center gap-2">
-        <h1 className="font-bold font-mono text-4xl tracking-tight">crikket</h1>
+        <h1 className="font-bold font-mono text-4xl tracking-tight">Dumont Bugs</h1>
       </div>
 
       <Card className="w-full max-w-[440px] border-none shadow-xl ring-1 ring-border/50">

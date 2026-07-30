@@ -1,17 +1,17 @@
 export const siteConfig = {
-  name: "Crikket",
-  title: "Crikket",
+  name: "Dumont Bugs",
+  title: "Dumont Bugs",
   description:
-    "Modern instant bug reporting platform. An open-source alternative to jam.dev and marker.io.",
+    "Internal bug reporting tool for Dumont and Shipeezi development teams.",
   keywords: [
     "bug reporting",
     "bug tracker",
     "issue reporting",
     "developer tools",
-    "open source",
+    "dumont",
   ],
   seo: {
-    titleTemplate: "%s | Crikket",
+    titleTemplate: "%s | Dumont Bugs",
     canonicalPath: "/",
     locale: "en_US",
     openGraphType: "website" as const,
@@ -19,12 +19,12 @@ export const siteConfig = {
     defaultOgImage: "/og.png",
   },
   author: {
-    name: "redpangilinan",
-    twitter: "@redpngilinan",
+    name: "Dumont",
+    twitter: "@getdumont",
   },
   links: {
-    repo: "https://github.com/redpangilinan/crikket",
-    github: "https://github.com/redpangilinan",
-    twitter: "https://x.com/redpngilinan",
+    repo: "https://github.com/DumontAI/dumont-bugs",
+    github: "https://github.com/DumontAI",
+    twitter: "https://x.com/getdumont",
   },
 }

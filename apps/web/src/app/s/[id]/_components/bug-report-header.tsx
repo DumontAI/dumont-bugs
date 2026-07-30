@@ -40,7 +40,7 @@ export function BugReportHeader({
           className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
           href="/"
         >
-          <span className="font-semibold text-foreground">crikket</span>
+          <span className="font-semibold text-foreground">Dumont Bugs</span>
         </Link>
         <Separator className="h-5 shrink-0" orientation="vertical" />
         <div className="flex min-w-0 items-center gap-2">
