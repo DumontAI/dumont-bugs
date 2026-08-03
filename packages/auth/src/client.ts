@@ -28,6 +28,9 @@ type AuthClient<Option extends BetterAuthClientOptions> = ReturnType<
 >
 
 export const authClient: AuthClient<AuthClientOptions> = createAuthClient({
-  baseURL: env.NEXT_PUBLIC_SERVER_URL,
+  baseURL:
+    typeof window === "undefined"
+      ? env.AUTH_INTERNAL_URL
+      : env.NEXT_PUBLIC_SERVER_URL,
   plugins: [adminPlugin, emailOtpPlugin, organizationPlugin, polarPlugin],
 })
