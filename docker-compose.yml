@@ -9,7 +9,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-crikket}
       POSTGRES_HOST_AUTH_METHOD: ${POSTGRES_HOST_AUTH_METHOD:-trust}
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "${POSTGRES_PORT:-5435}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -22,6 +22,21 @@ services:
     image: ghcr.io/redpangilinan/crikket-server:latest
     pull_policy: always
     container_name: crikket-server
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    # Hardening, not a bug fix: containers on this host cannot open IPv6 sockets
+    # but DNS still returns AAAA, so any outbound call can pick an unreachable
+    # address. Force IPv4-only resolution. Applied here because this netns is
+    # shared by crikket-web (network_mode: service:server); extra_hosts is
+    # rejected outright with a shared network mode.
+    # NOTE: this did NOT cause the old ConnectionRefused flood. That was the
+    # crikket-web healthcheck rendering the authenticated "/" route under
+    # Host: localhost:3001; see its healthcheck below.
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1
+    networks:
+      - default
     restart: unless-stopped
     env_file:
       - ./apps/server/.env
@@ -80,7 +95,7 @@ services:
           "CMD",
           "bun",
           "-e",
-          "fetch('http://localhost:3001').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))",
+          "fetch('http://localhost:3001/login').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))",
         ]
       interval: 10s
       timeout: 5s
