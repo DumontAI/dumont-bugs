@@ -21,8 +21,16 @@ export function getPageImage(page: InferPageType<typeof source>) {
   }
 }
 
+// ponytail: fumadocs 16.5 PageData types omit the processed-markdown methods
+// that the runtime provides; widen locally instead of pinning the whole stack.
+type WithProcessedMarkdown = {
+  data: { getText: (mode: "processed" | "raw") => Promise<string> }
+}
+
 export async function getLLMText(page: InferPageType<typeof source>) {
-  const processed = await page.data.getText("processed")
+  const processed = await (
+    page as unknown as WithProcessedMarkdown
+  ).data.getText("processed")
 
   return `# ${page.data.title}
 
