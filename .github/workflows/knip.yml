@@ -13,4 +13,5 @@ jobs:
     uses: DumontAI/dumont-ci/.github/workflows/knip.yml@v1
     with:
       strict: false
+      pnpm-version: 10
       install-command: bun install --frozen-lockfile
