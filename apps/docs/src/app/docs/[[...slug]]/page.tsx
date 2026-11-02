@@ -13,7 +13,6 @@ import {
 import { createRelativeLink } from "fumadocs-ui/mdx"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import type React from "react"
 import { LLMCopyButton, ViewOptions } from "@/components/ai/page-actions"
 import { getPageImage, source } from "@/lib/source"
 import { getMDXComponents } from "@/mdx-components"
@@ -34,7 +33,9 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   // ponytail: fumadocs 16.5 PageData types omit the MDX body and TOC that the
   // runtime provides; widen locally instead of pinning the whole stack.
   const data = page.data as unknown as {
-    body: React.ComponentType<{ components?: Record<string, unknown> }>
+    body: import("react").ComponentType<{
+      components?: Record<string, unknown>
+    }>
     full?: boolean
     toc: { title: unknown; url: string; depth: number }[]
   }
